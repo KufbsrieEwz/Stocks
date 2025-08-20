@@ -29,9 +29,10 @@ function Vector2(x, y) {
 function reset() {
     stock = [100]
     otherStock = [500]
-    stockMax = 100
+    stockMax = 500
     bank = 500
     heldStock = 0
+    heldOtherStock = 0
 }
 function shortNumber(x) {
     let shortForms = ['', 'K', 'M', 'B', 'T', 'Qa', 'Qi', 'Sx', 'Sp', 'O', 'N', 'D', 'UD', 'DD', 'TD', 'QaD', 'QiD', 'SxD', 'SpD', 'OD', 'ND', 'V', 'UV', 'DV', 'TV', 'QaV', 'QiV', 'SxV', 'SpV', 'OV', 'NV', 'Tr', 'UTr', 'DTr', 'TTr', 'QaTr', 'QiTr', 'SxTr', 'SpTr', 'OTr', 'NTr', 'Qd', 'UQd', 'DQd', 'TQd', 'QaQd', 'QiQd', 'SxQd', 'SpQd', 'OQd', 'NQd', 'Qg', 'UQg', 'DQg', 'TQg', 'QaQg', 'QiQg', 'SxQg', 'SpQg', 'OQg', 'NQg', 'Si', 'USi', 'DSi', 'TSi', 'QaSi', 'QiSi', 'SxSi', 'SpSi', 'OSi', 'NSi', 'Sg', 'USg', 'DSg', 'TSg', 'QaSg', 'QiSg', 'SxSg', 'SpSg', 'OSg', 'NSg', 'Og', 'UOg', 'DOg', 'TOg', 'QaOg', 'QiOg', 'SxOg', 'SpOg', 'OOg', 'NOg', 'Ng', 'UNg', 'DNg', 'TNg', 'QaNg', 'QiNg', 'SxNg', 'SpNg', 'ONg', 'NNg', 'Cn', 'UCn']
@@ -124,7 +125,7 @@ function draw() {
 }
 function run() {
     draw()
-    let newStock = stock[stock.length-1]+(Math.random()-0.6)*50
+    let newStock = stock[stock.length-1]+(Math.random()-0.4)*50
     if (Math.round(newStock*10)/10 > 0) {
         stock.push(Math.round(newStock*10)/10)
         if (stockMax < Math.round(newStock*10)/10) {
@@ -133,7 +134,7 @@ function run() {
     } else {
         stock.push(0)
     }
-    let otherNewStock = otherStock[otherStock.length-1]+(Math.random()-0.7)*250
+    let otherNewStock = otherStock[otherStock.length-1]+(Math.random()-0.1)*250
     if (Math.round(otherNewStock*10)/10 > 100) {
         if (Math.round(otherNewStock*10)/10 < 300) {
             otherNewStock += 25 * (100-(Math.round(otherNewStock*10)/10 - 300))/10
@@ -156,6 +157,9 @@ document.addEventListener("keydown", function(event) {
     switch(event.keyCode) {
         case 16:
         keys.shift = true
+        break
+        case 220:
+        otherStock.push(otherStock[otherStock.length-1]+500)
         break
     }
 })
