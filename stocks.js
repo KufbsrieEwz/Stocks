@@ -124,7 +124,7 @@ function draw() {
 }
 function run() {
     draw()
-    let newStock = stock[stock.length-1]+(Math.random()-0.5)*50
+    let newStock = stock[stock.length-1]+(Math.random()-0.6)*50
     if (Math.round(newStock*10)/10 > 0) {
         stock.push(Math.round(newStock*10)/10)
         if (stockMax < Math.round(newStock*10)/10) {
@@ -133,7 +133,7 @@ function run() {
     } else {
         stock.push(0)
     }
-    let otherNewStock = otherStock[otherStock.length-1]+(Math.random()-0.5)*250
+    let otherNewStock = otherStock[otherStock.length-1]+(Math.random()-0.7)*250
     if (Math.round(otherNewStock*10)/10 > 100) {
         if (Math.round(otherNewStock*10)/10 < 300) {
             otherNewStock += 25 * (100-(Math.round(otherNewStock*10)/10 - 300))/10
