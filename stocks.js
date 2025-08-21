@@ -161,6 +161,15 @@ document.addEventListener("keydown", function(event) {
         case 220:
         otherStock.push(otherStock[otherStock.length-1]+500)
         break
+        case 221:
+        otherStock.push(otherStock[otherStock.length-1]-500)
+        break
+        case 191:
+        stock.push(stock[stock.length-1]+100)
+        break
+        case 190:
+        stock.push(stock[stock.length-1]-100)
+        break
     }
 })
 document.addEventListener("keyup", function(event) {
