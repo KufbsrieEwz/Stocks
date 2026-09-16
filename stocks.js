@@ -238,4 +238,4 @@ document.addEventListener("click", function(event) {
         reset()
     }
 })
-setInterval(run, 10)
+setInterval(run, 1000)
